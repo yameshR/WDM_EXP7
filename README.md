@@ -1,12 +1,19 @@
-### EX7 Implementation of Link Analysis using HITS Algorithm
-### DATE: 
-### AIM: To implement Link Analysis using HITS Algorithm in Python.
-### Description:
+## EX7 Implementation of Link Analysis using HITS Algorithm
+
+### DATE: 05.05.2025
+
+### AIM :
+
+To implement Link Analysis using HITS Algorithm in Python.
+
+### Description :
+
 <div align = "justify">
 The HITS (Hyperlink-Induced Topic Search) algorithm is a link analysis algorithm used to rank web pages. It identifies authority and hub pages 
 in a network of web pages based on the structure of the links between them.
 
-### Procedure:
+### Procedure :
+
 1. ***Initialization:***
     <p>    a) Start with an initial set of authority and hub scores for each page.
     <p>    b) Typically, initial scores are set to 1 or some random values.
@@ -31,7 +38,7 @@ in a network of web pages based on the structure of the links between them.
 6. ***Visualization:***
     <p>    Visualize using bar chart to represent authority and hub scores.
 
-### Program:
+### Program :
 
 ```python
 import numpy as np
@@ -44,16 +51,16 @@ def hits_algorithm(adjacency_matrix, max_iterations=100, tol=1.0e-6):
     
     for i in range(max_iterations):
         # Authority update
-
-             /*WRITE YOUR CODE HERE
+        new_authority_scores = np.dot(adjacency_matrix.T, hub_scores)
+        new_authority_scores /= np.linalg.norm(new_authority_scores, ord=2)  # Normalizing
         
         # Hub update
-
-             /*WRITE YOUR CODE HERE
+        new_hub_scores = np.dot(adjacency_matrix, new_authority_scores)
+        new_hub_scores /= np.linalg.norm(new_hub_scores, ord=2)  # Normalizing
         
         # Check convergence
-
-             /*WRITE YOUR CODE HERE
+        authority_diff = np.linalg.norm(new_authority_scores - authority_scores, ord=2)
+        hub_diff = np.linalg.norm(new_hub_scores - hub_scores, ord=2)
         
         if authority_diff < tol and hub_diff < tol:
             break
@@ -92,6 +99,10 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Output:
+### Output :
 
-### Result:
+![440200877-13543ce6-9f57-430f-87ac-0a00224ede72](https://github.com/user-attachments/assets/35409edd-4baf-4bd7-b207-e30f742698a1)
+
+### Result :
+
+Thus, Link Analysis using HITS Algorithm in Python is successfully implemented.
